@@ -56,7 +56,7 @@ function App() {
         sx={{
           width: "40%",
           margin: "auto",
-          marginTop: "35vh",
+          marginTop: "25vh",
           borderRadius: "15px",
           backgroundColor: "white",
         }}
@@ -68,80 +68,91 @@ function App() {
             paddingTop: "20px",
           }}
         >
-          <FormControl
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "15px",
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleDownloadImage();
             }}
           >
-            <InputLabel id="politician-select-label">Siyasetçi</InputLabel>
-            <Select
-              labelId="politician-select-label"
-              id="politician-select"
-              value={politician}
-              onChange={handleChange}
-              label="Siyasetçi"
+            <FormControl
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "15px",
+              }}
             >
-              <MenuItem value={"Kemal Kılıçdaroğlu"}>
-                Kemal Kılıçdaroğlu
-              </MenuItem>
-              <MenuItem value={"Recep Tayyip Erdoğan"}>
-                Recep Tayyip Erdoğan
-              </MenuItem>
-              <MenuItem value={"Meral Akşener"}>Meral Akşener</MenuItem>
-              <MenuItem value={"Ali Babacan"}>Ali Babacan</MenuItem>
-              <MenuItem value={"Temel Karamolluoğlu"}>
-                Temel Karamolluoğlu
-              </MenuItem>
-              <MenuItem value={"Ahmet Davutoğlu"}>Ahmet Davutoğlu</MenuItem>
-            </Select>
+              <InputLabel id="politician-select-label">Siyasetçi</InputLabel>
+              <Select
+                labelId="politician-select-label"
+                id="politician-select"
+                value={politician}
+                onChange={handleChange}
+                label="Siyasetçi"
+              >
+                <MenuItem value={"Kemal Kılıçdaroğlu"}>
+                  Kemal Kılıçdaroğlu
+                </MenuItem>
+                <MenuItem value={"Recep Tayyip Erdoğan"}>
+                  Recep Tayyip Erdoğan
+                </MenuItem>
+                <MenuItem value={"Meral Akşener"}>Meral Akşener</MenuItem>
+                <MenuItem value={"Ali Babacan"}>Ali Babacan</MenuItem>
+                <MenuItem value={"Temel Karamolluoğlu"}>
+                  Temel Karamolluoğlu
+                </MenuItem>
+                <MenuItem value={"Ahmet Davutoğlu"}>Ahmet Davutoğlu</MenuItem>
+              </Select>
 
-            <TextField
-              fullWidth
-              id="outlined-basic"
-              label="Şarkı"
-              variant="outlined"
-              inputProps={{
-                maxLength: 25,
-              }}
-              onChange={(e) => {
-                setSong(e.target.value);
-              }}
-            />
+              <TextField
+                fullWidth
+                id="outlined-basic"
+                label="Şarkı"
+                variant="outlined"
+                inputProps={{
+                  maxLength: 25,
+                }}
+                onChange={(e) => {
+                  setSong(e.target.value);
+                }}
+              />
 
-            <TextField
-              fullWidth
-              id="outlined-basic"
-              label="Sanatçı"
-              variant="outlined"
-              inputProps={{
-                maxLength: 25,
-              }}
-              onChange={(e) => {
-                setArtist(e.target.value);
-              }}
-            />
+              <TextField
+                fullWidth
+                id="outlined-basic"
+                label="Sanatçı"
+                variant="outlined"
+                inputProps={{
+                  maxLength: 25,
+                }}
+                onChange={(e) => {
+                  setArtist(e.target.value);
+                }}
+              />
 
-            <TextField
-              fullWidth
-              id="outlined-basic"
-              label="Playlist"
-              variant="outlined"
-              inputProps={{
-                maxLength: 25,
-              }}
-              onChange={(e) => {
-                setPlaylist(e.target.value);
-              }}
-            />
-            <Button sx={{marginBottom:"15px"}} variant="contained" onClick={handleDownloadImage}>
-              Oluştur
-            </Button>
-          </FormControl>
+              <TextField
+                fullWidth
+                id="outlined-basic"
+                label="Playlist"
+                variant="outlined"
+                inputProps={{
+                  maxLength: 25,
+                }}
+                onChange={(e) => {
+                  setPlaylist(e.target.value);
+                }}
+              />
+              <Button
+                sx={{ marginBottom: "15px" }}
+                variant="contained"
+                type="submit"
+              >
+                Oluştur
+              </Button>
+            </FormControl>
+          </form>
         </Box>
       </ResponsiveBox>
-      <Box id="result" sx={{ width: "1000px", marginTop:"2000px" }}>
+      <Box id="result" sx={{ width: "1500px", marginTop: "2000px" }}>
         <SpotifyCard
           name={politician}
           songDetails={{ name: song, artist: artist }}

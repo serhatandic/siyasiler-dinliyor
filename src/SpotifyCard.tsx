@@ -32,10 +32,12 @@ const SpotifyCard: React.FC<SpotifyCardProps> = ({
           justifyContent: "center",
         }}
       >
-        <img
-          src={"./" + name + ".png"}
-          style={{ width: "90px", height: "90px", borderRadius: "100%" }}
-        ></img>
+        {name && (
+          <img
+            src={"./" + name + ".png"}
+            style={{ width: "90px", height: "90px", borderRadius: "100%" }}
+          ></img>
+        )}
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <Typography
             sx={{
