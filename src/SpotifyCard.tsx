@@ -45,6 +45,7 @@ const SpotifyCard: React.FC<SpotifyCardProps> = ({
               color: "#FAFAFA",
               fontSize: "1.5rem",
               fontWeight: "500",
+              whiteSpace:"nowrap"
             }}
           >
             {name}
@@ -55,6 +56,7 @@ const SpotifyCard: React.FC<SpotifyCardProps> = ({
                 fontFamily: "Golos Text",
                 color: "#FAFAFA",
                 fontWeight: "500",
+                whiteSpace:"nowrap"
               }}
             >
               {songDetails.name}
@@ -67,6 +69,7 @@ const SpotifyCard: React.FC<SpotifyCardProps> = ({
                 fontFamily: "Golos Text",
                 color: "#FAFAFA",
                 fontWeight: "500",
+                whiteSpace:"nowrap"
               }}
             >
               {songDetails.artist}
@@ -81,6 +84,7 @@ const SpotifyCard: React.FC<SpotifyCardProps> = ({
                 fontFamily: "Golos Text",
                 color: "#FAFAFA",
                 fontWeight: "500",
+                whiteSpace:"nowrap"
               }}
             >
               {playlistDetails}
