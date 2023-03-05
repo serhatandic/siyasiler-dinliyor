@@ -10,7 +10,7 @@ import {
   Snackbar,
   Alert,
 } from "@mui/material";
-import React, { useState, useRef } from "react";
+import { useState } from "react";
 import SpotifyCard from "./SpotifyCard";
 import html2canvas from "html2canvas";
 import { styled } from "@mui/material/styles";
