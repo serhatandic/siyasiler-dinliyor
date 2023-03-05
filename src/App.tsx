@@ -109,7 +109,7 @@ function App() {
                 label="Şarkı"
                 variant="outlined"
                 inputProps={{
-                  maxLength: 25,
+                  maxLength: 35,
                 }}
                 onChange={(e) => {
                   setSong(e.target.value);
@@ -122,7 +122,7 @@ function App() {
                 label="Sanatçı"
                 variant="outlined"
                 inputProps={{
-                  maxLength: 25,
+                  maxLength: 35,
                 }}
                 onChange={(e) => {
                   setArtist(e.target.value);
@@ -135,7 +135,7 @@ function App() {
                 label="Playlist"
                 variant="outlined"
                 inputProps={{
-                  maxLength: 25,
+                  maxLength: 70,
                 }}
                 onChange={(e) => {
                   setPlaylist(e.target.value);

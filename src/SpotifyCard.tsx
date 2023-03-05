@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import CircleIcon from "@mui/icons-material/Circle";
 import AdjustIcon from "@mui/icons-material/Adjust";
 import React from "react";
 
@@ -45,7 +45,7 @@ const SpotifyCard: React.FC<SpotifyCardProps> = ({
               color: "#FAFAFA",
               fontSize: "1.5rem",
               fontWeight: "500",
-              whiteSpace:"nowrap"
+              whiteSpace: "nowrap",
             }}
           >
             {name}
@@ -56,20 +56,20 @@ const SpotifyCard: React.FC<SpotifyCardProps> = ({
                 fontFamily: "Golos Text",
                 color: "#FAFAFA",
                 fontWeight: "500",
-                whiteSpace:"nowrap"
+                whiteSpace: "nowrap",
+                marginRight:"5px"
               }}
             >
               {songDetails.name}
             </Typography>
-            <FiberManualRecordIcon
-              sx={{ fontSize: "8px", color: "#FAFAFA", margin: "0 5px" }}
-            />
+            <CircleIcon sx={{ fontSize: "8px", color: "#FAFAFA", paddingTop:"1px" }} />
             <Typography
               sx={{
                 fontFamily: "Golos Text",
                 color: "#FAFAFA",
                 fontWeight: "500",
-                whiteSpace:"nowrap"
+                whiteSpace: "nowrap",
+                marginLeft:"5px"
               }}
             >
               {songDetails.artist}
@@ -84,7 +84,7 @@ const SpotifyCard: React.FC<SpotifyCardProps> = ({
                 fontFamily: "Golos Text",
                 color: "#FAFAFA",
                 fontWeight: "500",
-                whiteSpace:"nowrap"
+                whiteSpace: "nowrap",
               }}
             >
               {playlistDetails}
