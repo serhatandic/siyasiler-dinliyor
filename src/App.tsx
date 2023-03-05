@@ -1,34 +1,173 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import {
+  Box,
+  MenuItem,
+  Select,
+  TextField,
+  SelectChangeEvent,
+  InputLabel,
+  FormControl,
+  Button,
+  Snackbar,
+  Alert,
+} from "@mui/material";
+import React, { useState, useRef } from "react";
+import SpotifyCard from "./SpotifyCard";
+import html2canvas from "html2canvas";
+import { styled } from "@mui/material/styles";
+
+const ResponsiveBox = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down("md")]: {
+    width: "90vw",
+  },
+}));
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [politician, setPolitician] = useState("");
+  const [song, setSong] = useState("");
+  const [artist, setArtist] = useState("");
+  const [playlist, setPlaylist] = useState("");
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
 
+  const handleChange = (e: SelectChangeEvent) => {
+    setPolitician(e.target.value);
+  };
+
+  const handleDownloadImage = async () => {
+    if (politician && song && artist && playlist) {
+      setSnackbarOpen(false);
+      const component = document.getElementById("result");
+
+      html2canvas(component!).then((canvas) => {
+        const dataUrl = canvas.toDataURL();
+        const link = document.createElement("a");
+        link.download = `${politician}.png`;
+        link.href = dataUrl;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    } else {
+      setSnackbarOpen(true);
+    }
+  };
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ResponsiveBox
+        sx={{
+          width: "40%",
+          height: "38vh",
+          margin: "auto",
+          marginTop: "35vh",
+          borderRadius: "15px",
+          backgroundColor: "white",
+        }}
+      >
+        <Box
+          sx={{
+            width: "70%",
+            margin: "auto",
+            paddingTop: "20px",
+          }}
+        >
+          <FormControl
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "15px",
+            }}
+          >
+            <InputLabel id="politician-select-label">Siyasetçi</InputLabel>
+            <Select
+              labelId="politician-select-label"
+              id="politician-select"
+              value={politician}
+              onChange={handleChange}
+              label="Siyasetçi"
+            >
+              <MenuItem value={"Kemal Kılıçdaroğlu"}>
+                Kemal Kılıçdaroğlu
+              </MenuItem>
+              <MenuItem value={"Recep Tayyip Erdoğan"}>
+                Recep Tayyip Erdoğan
+              </MenuItem>
+              <MenuItem value={"Meral Akşener"}>Meral Akşener</MenuItem>
+              <MenuItem value={"Ali Babacan"}>Ali Babacan</MenuItem>
+              <MenuItem value={"Temel Karamolluoğlu"}>
+                Temel Karamolluoğlu
+              </MenuItem>
+              <MenuItem value={"Ahmet Davutoğlu"}>Ahmet Davutoğlu</MenuItem>
+            </Select>
+
+            <TextField
+              fullWidth
+              id="outlined-basic"
+              label="Şarkı"
+              variant="outlined"
+              inputProps={{
+                maxLength: 25,
+              }}
+              onChange={(e) => {
+                setSong(e.target.value);
+              }}
+            />
+
+            <TextField
+              fullWidth
+              id="outlined-basic"
+              label="Sanatçı"
+              variant="outlined"
+              inputProps={{
+                maxLength: 25,
+              }}
+              onChange={(e) => {
+                setArtist(e.target.value);
+              }}
+            />
+
+            <TextField
+              fullWidth
+              id="outlined-basic"
+              label="Playlist"
+              variant="outlined"
+              inputProps={{
+                maxLength: 25,
+              }}
+              onChange={(e) => {
+                setPlaylist(e.target.value);
+              }}
+            />
+            <Button variant="contained" onClick={handleDownloadImage}>
+              Oluştur
+            </Button>
+          </FormControl>
+        </Box>
+      </ResponsiveBox>
+      <Box id="result" sx={{ marginTop: "2000px", width: "1400px" }}>
+        <SpotifyCard
+          name={politician}
+          songDetails={{ name: song, artist: artist }}
+          playlistDetails={playlist}
+        />
+      </Box>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={() => {
+          setSnackbarOpen(false);
+        }}
+      >
+        <Alert
+          onClose={() => {
+            setSnackbarOpen(false);
+          }}
+          severity="warning"
+          sx={{ width: "100%" }}
+        >
+          Lütfen Tüm Alanları Doldurunuz
+        </Alert>
+      </Snackbar>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
