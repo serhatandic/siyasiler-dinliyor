@@ -152,7 +152,7 @@ function App() {
           </form>
         </Box>
       </ResponsiveBox>
-      <Box id="result" sx={{ width: "1500px", marginTop: "2000px" }}>
+      <Box id="result" sx={{ width: "1000px", marginTop: "2000px" }}>
         <SpotifyCard
           name={politician}
           songDetails={{ name: song, artist: artist }}
