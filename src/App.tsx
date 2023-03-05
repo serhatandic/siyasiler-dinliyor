@@ -55,7 +55,6 @@ function App() {
       <ResponsiveBox
         sx={{
           width: "40%",
-          height: "38vh",
           margin: "auto",
           marginTop: "35vh",
           borderRadius: "15px",
@@ -136,13 +135,13 @@ function App() {
                 setPlaylist(e.target.value);
               }}
             />
-            <Button variant="contained" onClick={handleDownloadImage}>
+            <Button sx={{marginBottom:"15px"}} variant="contained" onClick={handleDownloadImage}>
               Oluştur
             </Button>
           </FormControl>
         </Box>
       </ResponsiveBox>
-      <Box id="result" sx={{ marginTop: "2000px", width: "1400px" }}>
+      <Box id="result" sx={{ width: "1000px", marginTop:"2000px" }}>
         <SpotifyCard
           name={politician}
           songDetails={{ name: song, artist: artist }}
