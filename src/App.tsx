@@ -55,7 +55,7 @@ function App() {
   };
   return (
     <div className="App">
-      <Box sx={{display:"flex", gap:"10px"}}>
+      <Box sx={{display:"flex", gap:"10px", position:"absolute", right:"15px", top:"5px"}}>
         <a href="https://twitter.com/Porigam" target="_blank"><TwitterIcon sx={{color:"blue", fontSize:"36px"}}/></a>
         <a href="https://github.com/serhatandic/siyasiler-dinliyor" target="_blank"><GitHubIcon sx={{fontSize:"36px"}}/></a>
       </Box>
