@@ -95,12 +95,16 @@ function App() {
                 <MenuItem value={"Recep Tayyip Erdoğan"}>
                   Recep Tayyip Erdoğan
                 </MenuItem>
+                <MenuItem value={"Sinan Ogan"}>Sinan Ogan</MenuItem>
+                <MenuItem value={"Muharrem İnce"}>Muharrem İnce</MenuItem>
+                <MenuItem value = {"Devlet Bahçeli"}>Devlet Bahçeli</MenuItem>
                 <MenuItem value={"Meral Akşener"}>Meral Akşener</MenuItem>
                 <MenuItem value={"Ali Babacan"}>Ali Babacan</MenuItem>
                 <MenuItem value={"Temel Karamolluoğlu"}>
                   Temel Karamolluoğlu
                 </MenuItem>
                 <MenuItem value={"Ahmet Davutoğlu"}>Ahmet Davutoğlu</MenuItem>
+
               </Select>
 
               <TextField
