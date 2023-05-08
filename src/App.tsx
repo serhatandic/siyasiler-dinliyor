@@ -108,6 +108,7 @@ function App() {
                 <MenuItem value={"Ekrem İmamoğlu"}>Ekrem İmamoğlu</MenuItem>
                 <MenuItem value={"Güntekin Onay"}>Güntekin Onay</MenuItem>
                 <MenuItem value={"Fatih Erbakan"}>Fatih Erbakan</MenuItem>
+                <MenuItem value={"Süleyman Soylu"}>Süleyman Soylu</MenuItem>
               </Select>
 
               <TextField
