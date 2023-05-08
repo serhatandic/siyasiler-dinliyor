@@ -15,6 +15,9 @@ import SpotifyCard from "./SpotifyCard";
 import html2canvas from "html2canvas";
 import { styled } from "@mui/material/styles";
 
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GitHubIcon from '@mui/icons-material/GitHub';
+
 const ResponsiveBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
     width: "90vw",
@@ -52,6 +55,10 @@ function App() {
   };
   return (
     <div className="App">
+      <Box sx={{display:"flex", gap:"10px"}}>
+        <a href="https://twitter.com/Porigam" target="_blank"><TwitterIcon sx={{color:"blue", fontSize:"36px"}}/></a>
+        <a href="https://github.com/serhatandic/siyasiler-dinliyor" target="_blank"><GitHubIcon sx={{fontSize:"36px"}}/></a>
+      </Box>
       <ResponsiveBox
         sx={{
           width: "40%",
