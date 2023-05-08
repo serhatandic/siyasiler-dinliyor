@@ -104,7 +104,10 @@ function App() {
                   Temel Karamolluoğlu
                 </MenuItem>
                 <MenuItem value={"Ahmet Davutoğlu"}>Ahmet Davutoğlu</MenuItem>
-
+                <MenuItem value={"Fatih Erbakan"}>Fatih Erbakan</MenuItem>
+                <MenuItem value={"Ekrem İmamoğlu"}>Ekrem İmamoğlu</MenuItem>
+                <MenuItem value={"Güntekin Onay"}>Güntekin Onay</MenuItem>
+                <MenuItem value={"Fatih Erbakan"}>Fatih Erbakan</MenuItem>
               </Select>
 
               <TextField
